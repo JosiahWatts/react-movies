@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Destructure props so I don't have to use props.
-const Movie = ({movie, key}) => {
-
+const Movie = ({ movie }) => {
+  
   return (
     <div>
       <div key={movie.id} className="card">{movie.id}</div>
@@ -10,6 +11,16 @@ const Movie = ({movie, key}) => {
     </div>
   );
 
+}
+
+Movie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired
+  })
+}
+
+Movie.defaultProps = {
+  //TODO
 }
 
 export default Movie;
