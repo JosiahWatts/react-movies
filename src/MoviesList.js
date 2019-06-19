@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
 import Movie from './Movie';
 
 import './App.css';
@@ -23,11 +25,18 @@ class MoviesList extends Component {
 
   render() {
     return (
-      <div className="card-container"> 
+      <MovieContainer> 
         {this.state.movies.map( movie => <Movie key={movie.id} movie={movie} overview={movie.overview} /> )}
-      </div>   
+      </MovieContainer>   
     );
   }
 }
 
 export default MoviesList;
+
+const MovieContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
