@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+const POSTER_PATH = 'http://image.tmdb.org/t/p/w300';
 
 // Destructure props so I don't have to use props.
 const Movie = ({ movie }) => {
   
   return (
     <div>
-      <div key={movie.id} className="card">{movie.id}</div>
-      <h3>{movie.title}</h3>
+      <div key={movie.id} className="card">
+        <Link to={`/${movie.id}`}>
+          <img src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title}></img>
+        </Link>
+      </div>
     </div>
   );
 
@@ -24,3 +30,6 @@ Movie.defaultProps = {
 }
 
 export default Movie;
+
+
+// 5:35 Understanding React Router
